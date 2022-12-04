@@ -34,7 +34,7 @@ class RegActivity : AppCompatActivity() {
             if (binding.eT2.text.isEmpty() || binding.eT3.text.isEmpty()) {
                 Toast.makeText(this, "Введите недостающие данные", Toast.LENGTH_SHORT).show()
             } else {
-            val intent = Intent(this, PersonageActivity:: class.java )
+            val intent = Intent(this, HomeActivity:: class.java )
             startActivity(intent)
             finish() }
         }
