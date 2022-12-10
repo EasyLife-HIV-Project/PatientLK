@@ -23,7 +23,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ParentHomeActivity"
+            android:name=".parent.ParentHomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

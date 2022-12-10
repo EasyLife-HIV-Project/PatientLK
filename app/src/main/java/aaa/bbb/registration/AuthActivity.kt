@@ -1,6 +1,7 @@
 package aaa.bbb.registration
 
 import aaa.bbb.registration.databinding.ActivityAuthBinding
+import aaa.bbb.registration.parent.ParentHomeActivity
 import aaa.bbb.registration.patient.HomeActivity
 import aaa.bbb.registration.retrofit.PatientApi
 import android.content.Intent
@@ -24,6 +25,7 @@ import java.util.*
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
@@ -46,26 +48,21 @@ class AuthActivity : AppCompatActivity() {
             if (binding.eT5.text.isEmpty()) {
                 Toast.makeText(this, "Введите пароль", Toast.LENGTH_SHORT).show()
             } else {
-                val intent = Intent(this, HomeActivity:: class.java )
-                startActivity(intent)
-                finish()
+                getUser()
             }
         }
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    fun getMethod() {
+    fun getUser() {
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://dummy.restapiexample.com")
+            .baseUrl("http://83.222.11.163/")
             .build()
 
         val service = retrofit.create(PatientApi::class.java)
 
         CoroutineScope(Dispatchers.IO).launch {
-            val login = binding.eT4.text
-            val password = binding.eT5.text
-            val cred = Base64.getEncoder().encodeToString("$login:$password".toByteArray())
-            val response = service.getUser(cred.toString())
+            val response = service.getUser()
 
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
@@ -79,9 +76,18 @@ class AuthActivity : AppCompatActivity() {
                     )
 
                     Log.d("Pretty Printed JSON :", prettyJson)
+                    if (binding.checkBox2.isChecked) {
+                        val intent = Intent(this@AuthActivity, ParentHomeActivity:: class.java )
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        val intent = Intent(this@AuthActivity, HomeActivity:: class.java )
+                        startActivity(intent)
+                        finish()
+                    }
 
                 } else {
-
+                    Toast.makeText(this@AuthActivity, "Введите корректные данные", Toast.LENGTH_SHORT).show()
                     Log.e("RETROFIT_ERROR", response.code().toString())
 
                 }

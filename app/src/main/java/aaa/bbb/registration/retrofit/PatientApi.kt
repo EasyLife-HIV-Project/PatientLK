@@ -14,5 +14,5 @@ interface PatientApi {
     suspend fun createParent(@Body requestBody: RequestBody): Response<ResponseBody>
 
     @GET("/api/v1/users/current")
-    suspend fun getUser(@Path("credentials") credUser: String): Response<ResponseBody>
+    suspend fun getUser(): Response<ResponseBody>
 }
