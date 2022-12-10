@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/cyan500"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".AuthActivity">
 
@@ -15,7 +15,7 @@
         android:fontFamily="@font/karla_bold"
         android:gravity="center"
         android:text="EASY LIFE"
-        android:textColor="@color/white"
+        android:textColor="@color/teal_200"
         android:textSize="42sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,14 +30,15 @@
         android:fontFamily="@font/karla_bold"
         android:gravity="center"
         android:text="Вход"
-        android:textColor="@color/white"
+        android:textColor="@color/teal_200"
         android:textSize="38sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView5"
@@ -47,7 +48,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         app:cardCornerRadius="30dp"
-        app:cardElevation="0dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +83,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         app:cardCornerRadius="30dp"
-        app:cardElevation="0dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +127,7 @@
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/montserrat_semibold"
             android:gravity="center"
-            android:text="Продолжить"
+            android:text="Войти"
             android:textColor="@color/cyan800"
             android:textSize="28sp"
             android:textStyle="bold" />
@@ -153,9 +154,37 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:text="Зарегистрироваться"
-        android:textColor="@color/white"
+        android:textColor="@color/teal_200"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="30dp"
+        android:buttonTint="@color/teal_200"
+        android:minHeight="32dp"
+        android:text="Я родитель"
+        android:textColor="@color/teal_200"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/tV8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Забыли пароль?"
+        android:textColor="@color/cyan800"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

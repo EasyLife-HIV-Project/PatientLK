@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/game"
+        android:title="Анализы"
+        android:icon="@drawable/analyze"/>
+    <item
+        android:id="@+id/calendar"
+        android:icon="@drawable/calendar"
+        android:title="Календарь"
+        android:visible="true" />
+    <item
+        android:id="@+id/message"
+        android:title="Чат"
+        android:icon="@drawable/message"/>
+    <item
+        android:id="@+id/book"
+        android:title="Статистика"
+        android:icon="@drawable/chart"/>
+</menu>

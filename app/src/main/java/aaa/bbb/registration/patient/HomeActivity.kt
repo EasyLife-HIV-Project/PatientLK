@@ -1,7 +1,8 @@
-package aaa.bbb.registration
+package aaa.bbb.registration.patient
 
+import aaa.bbb.registration.fragments.CalendarFragment
+import aaa.bbb.registration.R
 import aaa.bbb.registration.databinding.ActivityHomeBinding
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,11 +15,11 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val materialfragment = MaterialFragment()
+        val calendarfragment = CalendarFragment()
 
         binding.bNav.setOnNavigationItemSelectedListener {
             when (it.itemId){
-                R.id.calendar -> switchFragments(materialfragment)
+                R.id.calendar -> switchFragments(calendarfragment)
             }
             true
         }

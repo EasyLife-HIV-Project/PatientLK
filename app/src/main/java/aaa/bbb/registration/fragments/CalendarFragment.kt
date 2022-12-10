@@ -1,4 +1,4 @@
-package aaa.bbb.registration
+package aaa.bbb.registration.fragments
 
 import aaa.bbb.registration.databinding.FragmentMaterialBinding
 import android.app.AlarmManager
@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment
 import java.util.*
 
 
-class MaterialFragment : Fragment() {
+class CalendarFragment : Fragment() {
     private lateinit var binding: FragmentMaterialBinding
 
     override fun onCreateView(
