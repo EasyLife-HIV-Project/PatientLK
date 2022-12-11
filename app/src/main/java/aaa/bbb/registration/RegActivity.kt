@@ -44,22 +44,20 @@ class RegActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.iV1.setOnClickListener {
-            binding.eT3.inputType = InputType.TYPE_CLASS_TEXT
-        }
-
         binding.cardView4.setOnClickListener {
-            if (binding.eT2.text.isEmpty() || binding.eT3.text.isEmpty()) {
+            if (binding.eT2.text.isEmpty() || binding.eT3.text!!.isEmpty()) {
                 Toast.makeText(this, "Введите недостающие данные", Toast.LENGTH_SHORT).show()
             } else {
                 if (binding.checkBox1.isChecked) {
                     postParent()
-                    val intent = Intent(this, ParentHomeActivity:: class.java )
+                    val intent = Intent(this, AnswerActivity:: class.java)
+                    intent.putExtra("Remember", "pastePar")
                     startActivity(intent)
                     finish()
                 } else {
                     postPatient()
-                    val intent = Intent(this, HomeActivity:: class.java )
+                    val intent = Intent(this, AnswerActivity:: class.java)
+                    intent.putExtra("Remember", "pastePat")
                     startActivity(intent)
                     finish()
                 }

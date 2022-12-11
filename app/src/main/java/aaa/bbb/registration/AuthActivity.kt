@@ -40,12 +40,15 @@ class AuthActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.iV2.setOnClickListener {
-            binding.eT5.inputType = InputType.TYPE_CLASS_TEXT
+        binding.tV8.setOnClickListener {
+            val intent = Intent(this, AnswerActivity:: class.java )
+            intent.putExtra("Remember", "forget")
+            startActivity(intent)
+            finish()
         }
 
         binding.cardView7.setOnClickListener {
-            if (binding.eT5.text.isEmpty()) {
+            if (binding.eT5.text!!.isEmpty()) {
                 Toast.makeText(this, "Введите пароль", Toast.LENGTH_SHORT).show()
             } else {
                 getUser()
@@ -75,7 +78,7 @@ class AuthActivity : AppCompatActivity() {
                         )
                     )
 
-                    Log.d("Pretty Printed JSON :", prettyJson)
+                    Log.d("Pretty Printed JSON :", response.toString())
                     if (binding.checkBox2.isChecked) {
                         val intent = Intent(this@AuthActivity, ParentHomeActivity:: class.java )
                         startActivity(intent)
