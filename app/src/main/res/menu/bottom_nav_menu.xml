@@ -6,15 +6,15 @@
         android:icon="@drawable/game"/>
     <item
         android:id="@+id/calendar"
-        android:icon="@drawable/calendar"
+        android:icon="@drawable/ic_round_calendar_24"
         android:title="Календарь"
         android:visible="true" />
-    <item
-        android:id="@+id/message"
-        android:title="Чат"
-        android:icon="@drawable/message"/>
     <item
         android:id="@+id/book"
         android:title="Материалы"
         android:icon="@drawable/book"/>
+    <item
+        android:id="@+id/profile"
+        android:title="Профиль"
+        android:icon="@drawable/ic_round_group_24"/>
 </menu>

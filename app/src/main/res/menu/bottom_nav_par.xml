@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/game"
-        android:title="Анализы"
-        android:icon="@drawable/analyze"/>
+        android:id="@+id/profile"
+        android:title="Профиль"
+        android:icon="@drawable/ic_round_group_24"/>
     <item
         android:id="@+id/calendar"
-        android:icon="@drawable/calendar"
+        android:icon="@drawable/ic_round_calendar_24"
         android:title="Календарь"
         android:visible="true" />
     <item
         android:id="@+id/message"
         android:title="Чат"
-        android:icon="@drawable/message"/>
+        android:icon="@drawable/ic_round_message_24"/>
     <item
         android:id="@+id/book"
-        android:title="Статистика"
-        android:icon="@drawable/chart"/>
+        android:title="Материалы"
+        android:icon="@drawable/book"/>
 </menu>

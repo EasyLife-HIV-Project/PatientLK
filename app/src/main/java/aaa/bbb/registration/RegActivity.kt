@@ -20,7 +20,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.Cookie
+import okhttp3.CookieJar
+import okhttp3.HttpUrl
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.OkHttpClient
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import retrofit2.Retrofit
@@ -45,8 +49,8 @@ class RegActivity : AppCompatActivity() {
         }
 
         binding.cardView4.setOnClickListener {
-            if (binding.eT2.text.isEmpty() || binding.eT3.text!!.isEmpty()) {
-                Toast.makeText(this, "Введите недостающие данные", Toast.LENGTH_SHORT).show()
+            if (binding.eT3.text.toString().length < 8) {
+                Toast.makeText(this, "Количество символов не должно быть меньше 8", Toast.LENGTH_SHORT).show()
             } else {
                 if (binding.checkBox1.isChecked) {
                     postParent()
@@ -78,11 +82,7 @@ class RegActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun patientReg() {
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://83.222.11.163/")
-            .build()
-
-        val service = retrofit.create(PatientApi::class.java)
+        val service = PatientApi.create()
 
         val jsonObject = JSONObject()
         val login = binding.eT2.text
@@ -97,7 +97,7 @@ class RegActivity : AppCompatActivity() {
         val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
 
         CoroutineScope(Dispatchers.IO).launch {
-            val response = service.createPatient(requestBody)
+            val response = service.createUser(requestBody)
 
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
@@ -122,11 +122,8 @@ class RegActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun parentReg() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://83.222.11.163/")
-            .build()
 
-        val service = retrofit.create(PatientApi::class.java)
+        val service = PatientApi.create()
 
         val jsonObject = JSONObject()
         val login = binding.eT2.text
@@ -140,7 +137,7 @@ class RegActivity : AppCompatActivity() {
         val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
 
         CoroutineScope(Dispatchers.IO).launch {
-            val response = service.createParent(requestBody)
+            val response = service.createUser(requestBody)
 
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {

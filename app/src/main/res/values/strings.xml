@@ -2,4 +2,11 @@
     <string name="app_name">Registration</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="Questions">
+        <item>Выберите контрольный вопрос</item>
+        <item>Кличка вашего первого питомца?</item>
+        <item>Ваш любимый фильм?</item>
+        <item>Ваш любимый цвет?</item>
+        <item>Ваша любимая марка авто?</item>
+    </string-array>
 </resources>

@@ -27,7 +27,7 @@
         android:id="@+id/textView7"
         android:layout_width="340dp"
         android:layout_height="60dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="144dp"
         android:fontFamily="@font/karla_bold"
         android:gravity="center"
         android:text="Регистрация"
@@ -39,118 +39,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+    <EditText
+        android:id="@+id/eT1"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/cardselector"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="10dp"
+        android:ems="10"
+        android:paddingLeft="30dp"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:ignore="MissingClass">
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        <LinearLayout
-            android:background="@color/teal_200"
-            android:layout_width="match_parent"
-            android:layout_marginTop="46dp"
-            android:orientation="vertical"
-            android:layout_height="4dp"/>
-
-        <EditText
-            android:id="@+id/eT1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:background="@null"
-            android:ems="10"
-            android:inputType="number"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="30dp"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
-        tools:ignore="MissingClass">
-
-        <LinearLayout
-            android:background="@color/teal_200"
-            android:layout_width="match_parent"
-            android:layout_marginTop="46dp"
-            android:orientation="vertical"
-            android:layout_height="4dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
-            app:passwordToggleEnabled="true"
-            android:inputType="textPassword"
-            tools:ignore="SpeakableTextPresentCheck">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/eT3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:inputType="textPassword">
-
-            </com.google.android.material.textfield.TextInputEditText>
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/cardselector"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="10dp"
+        android:inputType="textPassword"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView1"
-        tools:ignore="MissingClass">
+        app:layout_constraintTop_toBottomOf="@+id/eT2"
+        app:passwordToggleEnabled="true"
+        tools:ignore="SpeakableTextPresentCheck">
 
-        <LinearLayout
-            android:background="@color/teal_200"
-            android:layout_width="match_parent"
-            android:layout_marginTop="46dp"
-            android:orientation="vertical"
-            android:layout_height="4dp"/>
-
-        <EditText
-            android:id="@+id/eT2"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/eT3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:background="@null"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </androidx.cardview.widget.CardView>
+            android:background="@drawable/cardselector"
+            android:inputType="textPassword"
+            android:paddingStart="30dp"
+            android:paddingLeft="20dp"
+            android:paddingEnd="30dp"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/eT2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/cardselector"
+        android:ems="10"
+        android:paddingLeft="30dp"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eT1"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
@@ -160,15 +112,15 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="60dp"
-        android:backgroundTint="@color/bezh"
+        android:backgroundTint="@color/birusa"
         app:cardCornerRadius="30dp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        app:layout_constraintVertical_bias="0.08"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintVertical_bias="0.048"
         tools:ignore="MissingClass">
 
         <TextView
@@ -218,7 +170,7 @@
         android:layout_marginEnd="30dp"
         android:buttonTint="@color/teal_200"
         android:minHeight="32dp"
-        android:text="Я родитель"
+        android:text="Аккаунт родителя"
         android:textColor="@color/teal_200"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
