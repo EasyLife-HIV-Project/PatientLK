@@ -11,8 +11,8 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -27,10 +27,6 @@ import java.util.*
 class CalendarFragment : Fragment() {
     private lateinit var binding: FragmentMaterialBinding
     private val adapter = CalendarAdapter()
-    private val listName = listOf("Таблетка 1", "Таблетка 2", "Таблетка 3", "Таблетка 4", "Таблетка 5", "Таблетка 6")
-    private val listTime = listOf("11:00", "13:00", "14:00", "16:00", "18:00", "21:00")
-    private val listTabl = listOf("1 раз в день после еды", "1 раз через 2 часа после завтрака", "1 раз в день перед обедом", "1 раз через 2 часа после завтрака", "1 раз в день перед ужином", "1 раз в день перед сном")
-    private var index = 0
     var dateList = ArrayList<CardDate>()
 
     override fun onCreateView(
@@ -62,6 +58,9 @@ class CalendarFragment : Fragment() {
             calendar.set(Calendar.MILLISECOND, 0)
             calendar.set(Calendar.MINUTE, materialTimePicker.minute)
             calendar.set(Calendar.HOUR_OF_DAY, materialTimePicker.hour)
+            if (calendar.before(Calendar.getInstance())){
+                calendar.add(Calendar.DATE,1)
+            }
 
             val alarmManager: AlarmManager = requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
@@ -140,7 +139,24 @@ class CalendarFragment : Fragment() {
         binding.search.setOnClickListener {
             binding.eTsearch.requestFocus()
         }
-        init()
+        binding.iV2.setOnClickListener {
+            binding.tTime.text = null
+            binding.tName.text = null
+            binding.tTabl.text = null
+            binding.tswitch.isChecked = false
+            binding.cardView5.visibility = View.VISIBLE
+                binding.apply {
+                    rcView.layoutManager = LinearLayoutManager(this@CalendarFragment.requireContext())
+                    rcView.adapter = adapter
+                    binding.tswitch.setOnCheckedChangeListener { _, isChecked ->
+                        if(isChecked){
+                            val plant = CardDate(binding.tTime.text.toString(), binding.tName.text.toString(), binding.tTabl.text.toString())
+                            adapter.addPlant(plant)
+                            binding.cardView5.visibility = View.INVISIBLE
+                        }
+                    }
+                }
+            }
         filter()
     }
 
@@ -167,19 +183,6 @@ class CalendarFragment : Fragment() {
                 PendingIntent.FLAG_UPDATE_CURRENT
             )
         }
-    @SuppressLint("ResourceType")
-    private fun init() {
-        binding.apply {
-            rcView.layoutManager = LinearLayoutManager(this@CalendarFragment.requireContext())
-            rcView.adapter = adapter
-            iV2.setOnClickListener {
-                if(index > 5) index = 0
-                val plant = CardDate(listTime[index], listName[index], listTabl[index])
-                adapter.addPlant(plant)
-                index++
-            }
-        }
-    }
     private fun filter() {
         val filteredlist: ArrayList<CardDate> = ArrayList()
 
@@ -189,11 +192,9 @@ class CalendarFragment : Fragment() {
             }
         }
         if (filteredlist.isEmpty()) {
-            Toast.makeText(this@CalendarFragment.requireContext(), "No Data Found..", Toast.LENGTH_SHORT).show()
+            Log.d("safe", "good")
         } else {
             adapter.filterList(filteredlist)
         }
     }
 }
-
-

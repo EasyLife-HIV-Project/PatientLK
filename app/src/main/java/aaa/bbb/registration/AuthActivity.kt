@@ -5,15 +5,13 @@ import aaa.bbb.registration.parent.ParentHomeActivity
 import aaa.bbb.registration.patient.HomeActivity
 import aaa.bbb.registration.retrofit.PatientApi
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
-import android.text.InputType
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
@@ -23,7 +21,6 @@ import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
-import retrofit2.Retrofit
 import java.util.*
 
 class AuthActivity : AppCompatActivity() {

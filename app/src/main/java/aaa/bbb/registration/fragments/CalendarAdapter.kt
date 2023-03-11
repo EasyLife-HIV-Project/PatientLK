@@ -2,19 +2,10 @@ package aaa.bbb.registration.fragments
 
 import aaa.bbb.registration.R
 import aaa.bbb.registration.databinding.CalendarItemBinding
-import android.app.AlertDialog
-import android.app.DatePickerDialog
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import java.util.*
-import kotlin.collections.ArrayList
 
 class CalendarAdapter: RecyclerView.Adapter<CalendarAdapter.CalendarHolder>() {
         var dateList = ArrayList<CardDate>()
@@ -50,4 +41,5 @@ class CalendarAdapter: RecyclerView.Adapter<CalendarAdapter.CalendarHolder>() {
         dateList = filterlist
         notifyDataSetChanged()
     }
-    }
+
+}

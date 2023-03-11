@@ -1,12 +1,19 @@
 package aaa.bbb.registration
 
-import androidx.test.platform.app.InstrumentationRegistry
+import aaa.bbb.registration.patient.HomeActivity
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
-
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.rule.ActivityTestRule
+import org.junit.Assert.*
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import org.junit.Assert.*
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -15,10 +22,20 @@ import org.junit.Assert.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
+    @get:Rule
+    var activityActivityTestRule = ActivityTestRule(
+        HomeActivity::class.java
+    )
     @Test
     fun useAppContext() {
-        // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("aaa.bbb.registration", appContext.packageName)
     }
+
+    @Test
+    fun clickButtonHome() {
+        onView(withId(R.id.game)).perform(click()).check(matches(isDisplayed()))
+    }
+
+
 }

@@ -3,7 +3,7 @@
     <item
         android:id="@+id/game"
         android:title="Игра"
-        android:icon="@drawable/game"/>
+        android:icon="@drawable/ic_game"/>
     <item
         android:id="@+id/calendar"
         android:icon="@drawable/ic_round_calendar_24"

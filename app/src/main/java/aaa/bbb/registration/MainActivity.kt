@@ -4,9 +4,9 @@ import aaa.bbb.registration.databinding.ActivityMainBinding
 import aaa.bbb.registration.patient.HomeActivity
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             if (url.isEmpty()) {
-                val intent = Intent(this, RegActivity::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 url = "first"
                 val pref: SharedPreferences =
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 editor.putString("2", url).apply()
                 finish()
             } else {
-                val intent = Intent(this, AuthActivity::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 finish()
             }
